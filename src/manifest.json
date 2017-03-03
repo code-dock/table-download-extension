@@ -1,0 +1,42 @@
+{
+    "manifest_version": 2,
+    "name": "Table Saver",
+    "description": "Save tabular data in one click",
+    "version": "0.1.0",
+    "author": "Marcelo Lazaroni - @Marcelolaza",
+    "browser_action": {
+        "default_icon": {
+            "16": "images/favicon-16x16.png",
+            "32": "images/favicon-32x32.png",
+            "96": "images/favicon-96x96.png",
+            "36": "images/android-icon-36x36.png",
+            "48": "images/android-icon-48x48.png",
+            "72": "images/android-icon-72x72.png",
+            "96": "images/android-icon-96x96.png",
+            "144": "images/android-icon-144x144.png",
+            "192": "images/android-icon-192x192.png"
+        },
+        "default_popup": "pages/index.html"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+    ],
+    "content_scripts": [
+        {
+          "matches": "<all_urls>",
+           "js": ["js/index.js"]
+        }
+    ],
+    "icons": {
+        "16": "images/favicon-16x16.png",
+        "32": "images/favicon-32x32.png",
+        "96": "images/favicon-96x96.png",
+        "48": "images/android-icon-48x48.png",
+        "72": "images/android-icon-72x72.png",
+        "96": "images/android-icon-96x96.png",
+        "144": "images/android-icon-144x144.png",
+        "192": "images/android-icon-192x192.png"
+    },
+    "content_security_policy": "script-src 'self' https://www.google-analytics.com/analytics.js;  object-src 'self';"
+}

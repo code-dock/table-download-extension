@@ -1,0 +1,12 @@
+{
+  "name": "table-download-extension",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "author": "Lazamar @ CodeDock",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-organiser": "^1.0.6"
+  }
+}
