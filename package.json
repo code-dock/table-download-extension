@@ -5,6 +5,9 @@
   "repository": {},
   "author": "Lazamar @ CodeDock",
   "license": "MIT",
+  "scripts": {
+    "build": "gulp create-zip"
+  },
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-organiser": "^1.0.6",

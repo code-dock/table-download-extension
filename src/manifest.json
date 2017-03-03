@@ -15,8 +15,11 @@
             "96": "images/android-icon-96x96.png",
             "144": "images/android-icon-144x144.png",
             "192": "images/android-icon-192x192.png"
-        },
-        "default_popup": "pages/index.html"
+        }
+    },
+    "background": {
+      "scripts": ["js/background.js"],
+      "persistent": false
     },
     "permissions": [
         "tabs",
