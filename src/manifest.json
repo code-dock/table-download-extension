@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Table Saver",
     "description": "Save tabular data in one click",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Marcelo Lazaroni - @Marcelolaza",
     "browser_action": {
         "default_icon": {
