@@ -26,8 +26,21 @@
     const formatDate = aDate =>
         `${aDate.getDate()}-${aDate.getMonth() + 1}-${aDate.getFullYear()}`;
 
+
+    const getFrameContent = frame =>
+      frame.contentWindow.document.body;
+
     // Get table
-    const largestTable = $("table")
+    const deepSelect = selector => item =>
+    $("iframe", item)
+        .concat($("frame", item))
+        .map(getFrameContent)
+        .map(deepSelect(selector))
+        .reduce((acc, arr) => acc.concat(arr), []) // flatten array
+        .concat($(selector, item));
+
+
+    const largestTable = deepSelect("table")(document.body)
         .reduce((largest, table) =>
           largest && $("tr", table).length > $("tr", largest).length
             ? table
