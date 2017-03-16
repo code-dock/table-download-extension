@@ -3,16 +3,23 @@
       Array.from(el.querySelectorAll(selector) || []);
 
     const getContent = el =>
-        `"${el.textContent.replace(/"/g, "\"\"")}"`;
+        `"${el.textContent
+            .replace(/"/g, "\"\"")
+            .replace("\n", "")
+            .trim()
+          }"`;
 
     const getHeaders = table =>
           $("th", table).map(getContent);
 
-    const getRows = table =>
-          $("tr", table)
-              .map(tr =>
+    const getRows = (table) => {
+        const rows = $("tr", table);
+        const td = rows.map(tr =>
                 $("td", tr).map(getContent)
               );
+        return td;
+    };
+
 
     // Array<Array<String>> -> String
     const toCSV = data =>
@@ -40,14 +47,15 @@
         .concat($(selector, item));
 
     const firstCellIsDate = table =>
-      $("td", table)[0].innerHTML.toLowerCase().includes("One");
+      $("td", table)[0].classList.contains("textHeader");
 
     const largestTable = deepSelect("table")(document.body)
         .reduce((largest, table) =>
-          largest && $("tr", table).length > $("tr", largest).length && firstCellIsDate(table)
+          firstCellIsDate(table)
             ? table
             : largest
         );
+
 
     const headers = getHeaders(largestTable);
     const rows = getRows(largestTable);
