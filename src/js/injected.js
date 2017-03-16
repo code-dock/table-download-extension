@@ -39,10 +39,12 @@
         .reduce((acc, arr) => acc.concat(arr), []) // flatten array
         .concat($(selector, item));
 
+    const firstCellIsDate = table =>
+      $("td", table)[0].innerHTML.toLowerCase().includes("One");
 
     const largestTable = deepSelect("table")(document.body)
         .reduce((largest, table) =>
-          largest && $("tr", table).length > $("tr", largest).length
+          largest && $("tr", table).length > $("tr", largest).length && firstCellIsDate(table)
             ? table
             : largest
         );
